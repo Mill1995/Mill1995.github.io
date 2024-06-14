@@ -1,0 +1,811 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vote</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../book.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">contracts</li><li class="chapter-item expanded "><a href="../../../contracts/dao/index.html">❱ dao</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/dao/FactoryFilmNFT.sol/contract.FactoryFilmNFT.html">FactoryFilmNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/FactorySubNFT.sol/contract.FactorySubNFT.html">FactorySubNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/FactoryTierNFT.sol/contract.FactoryTierNFT.html">FactoryTierNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/Ownablee.sol/contract.Ownablee.html">Ownablee</a></li><li class="chapter-item "><a href="../../../contracts/dao/Property.sol/contract.Property.html">Property</a></li><li class="chapter-item "><a href="../../../contracts/dao/StakingPool.sol/contract.StakingPool.html">StakingPool</a></li><li class="chapter-item "><a href="../../../contracts/dao/Subscription.sol/contract.Subscription.html">Subscription</a></li><li class="chapter-item "><a href="../../../contracts/dao/UniHelper.sol/contract.UniHelper.html">UniHelper</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleDAO.sol/contract.VabbleDAO.html">VabbleDAO</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleFund.sol/contract.VabbleFund.html">VabbleFund</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleNFT.sol/contract.VabbleNFT.html">VabbleNFT</a></li><li class="chapter-item expanded "><a href="../../../contracts/dao/Vote.sol/contract.Vote.html" class="active">Vote</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/interfaces/index.html">❱ interfaces</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/interfaces/IFactoryFilmNFT.sol/interface.IFactoryFilmNFT.html">IFactoryFilmNFT</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IOwnablee.sol/interface.IOwnablee.html">IOwnablee</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IProperty.sol/interface.IProperty.html">IProperty</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IStakingPool.sol/interface.IStakingPool.html">IStakingPool</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniHelper.sol/interface.IUniHelper.html">IUniHelper</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniswapV2Factory.sol/interface.IUniswapV2Factory.html">IUniswapV2Factory</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniswapV2Router.sol/interface.IUniswapV2Router.html">IUniswapV2Router</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVabbleDAO.sol/interface.IVabbleDAO.html">IVabbleDAO</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVabbleFund.sol/interface.IVabbleFund.html">IVabbleFund</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVote.sol/interface.IVote.html">IVote</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/libraries/index.html">❱ libraries</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/libraries/Arrays.sol/library.Arrays.html">Arrays</a></li><li class="chapter-item "><a href="../../../contracts/libraries/Helper.sol/library.Helper.html">Helper</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/mocks/index.html">❱ mocks</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/mocks/MockERC1155.sol/contract.MockERC1155.html">MockERC1155</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockERC20.sol/contract.MockERC20.html">MockERC20</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockERC721.sol/contract.MockERC721.html">MockERC721</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockUSDC.sol/contract.MockUSDC.html">MockUSDC</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockUSDT.sol/contract.MockUSDT.html">MockUSDT</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Mill1995/VABDAO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="vote"><a class="header" href="#vote">Vote</a></h1>
+<p><a href="https://github.com/Mill1995/VABDAO/blob/4914bdc306cbdb860037485ce4bcebbfdd390c9f/contracts/dao/Vote.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="/contracts/interfaces/IVote.sol/interface.IVote.html">IVote</a>, ReentrancyGuard</p>
+<p>*This contract facilitates voting processes related to governance and film approvals within the Vabble ecosystem.
+It integrates with other contracts like <code>StakingPool</code>, <code>Property</code>, and <code>VabbleDAO</code> to manage voting rights, stake
+amounts, and proposal approval logic.
+The contract allows stakeholders (stakers) to vote on proposals regarding governance decisions and films.
+The contract includes functionality for:</p>
+<ul>
+<li>Voting on governance proposals for auditor changes, reward address changes, adding film board members and various
+property changes.</li>
+<li>Voting on film proposals for funding types, such as listing or distribution.</li>
+<li>Approving film proposals based on voting outcomes.</li>
+<li>Tracking voting periods and stakeholder participation.
+Governance proposals and film proposals undergo distinct voting periods, ensuring transparent decision-making and
+stakeholder engagement. Stakers are incentivized through rewards managed by the <code>StakingPool</code> contract, which
+distributes rewards based on voting activity and stake amounts.
+This contract is part of the broader Vabble ecosystem governance framework, enabling efficient and fair governance
+decision-making processes. It enforces governance rules defined in the <code>Property</code> contract and interacts with the
+<code>VabbleDAO</code> for film-related decisions and status updates.*</li>
+</ul>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="ownable"><a class="header" href="#ownable">OWNABLE</a></h3>
+<p><em>The address of the Ownable contract.</em></p>
+<pre><code class="language-solidity">address private immutable OWNABLE;
+</code></pre>
+<h3 id="vabble_dao"><a class="header" href="#vabble_dao">VABBLE_DAO</a></h3>
+<p><em>The address of the Vabble DAO contract.</em></p>
+<pre><code class="language-solidity">address private VABBLE_DAO;
+</code></pre>
+<h3 id="staking_pool"><a class="header" href="#staking_pool">STAKING_POOL</a></h3>
+<p><em>The address of the Staking Pool contract.</em></p>
+<pre><code class="language-solidity">address private STAKING_POOL;
+</code></pre>
+<h3 id="dao_property"><a class="header" href="#dao_property">DAO_PROPERTY</a></h3>
+<p><em>The address of the Property contract.</em></p>
+<pre><code class="language-solidity">address private DAO_PROPERTY;
+</code></pre>
+<h3 id="uni_helper"><a class="header" href="#uni_helper">UNI_HELPER</a></h3>
+<p><em>The address of the Uni Helper contract.</em></p>
+<pre><code class="language-solidity">address private UNI_HELPER;
+</code></pre>
+<h3 id="filmvoting"><a class="header" href="#filmvoting">filmVoting</a></h3>
+<p>Mapping of film IDs to their corresponding Voting struct.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; Voting) public filmVoting;
+</code></pre>
+<h3 id="filmboardvoting"><a class="header" href="#filmboardvoting">filmBoardVoting</a></h3>
+<p>Mapping of film board indices to their corresponding Voting struct.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; Voting) public filmBoardVoting;
+</code></pre>
+<h3 id="rewardaddressvoting"><a class="header" href="#rewardaddressvoting">rewardAddressVoting</a></h3>
+<p>Mapping of reward address indices to their corresponding Voting struct.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; Voting) public rewardAddressVoting;
+</code></pre>
+<h3 id="propertyvoting"><a class="header" href="#propertyvoting">propertyVoting</a></h3>
+<p>Mapping of property flags and indices to their corresponding Voting struct.
+(flag =&gt; (property index =&gt; Voting))</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; mapping(uint256 =&gt; Voting)) public propertyVoting;
+</code></pre>
+<h3 id="agentvoting"><a class="header" href="#agentvoting">agentVoting</a></h3>
+<p>Mapping of agent indices to their corresponding AgentVoting struct.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; AgentVoting) public agentVoting;
+</code></pre>
+<h3 id="isattendtofilmvote"><a class="header" href="#isattendtofilmvote">isAttendToFilmVote</a></h3>
+<p>Mapping to track if a staker has participated in a film vote.
+Maps staker to filmId to true/false.</p>
+<pre><code class="language-solidity">mapping(address =&gt; mapping(uint256 =&gt; bool)) public isAttendToFilmVote;
+</code></pre>
+<h3 id="isattendtoboardvote"><a class="header" href="#isattendtoboardvote">isAttendToBoardVote</a></h3>
+<p>Mapping to track if a staker has participated in a film board vote.
+Maps staker to filmBoard index to true/false.</p>
+<pre><code class="language-solidity">mapping(address =&gt; mapping(uint256 =&gt; bool)) public isAttendToBoardVote;
+</code></pre>
+<h3 id="isattendtorewardaddressvote"><a class="header" href="#isattendtorewardaddressvote">isAttendToRewardAddressVote</a></h3>
+<p>Mapping to track if a staker has participated in a reward address vote.
+Maps staker to rewardAddress index to true/false.</p>
+<pre><code class="language-solidity">mapping(address =&gt; mapping(uint256 =&gt; bool)) public isAttendToRewardAddressVote;
+</code></pre>
+<h3 id="isattendtoagentvote"><a class="header" href="#isattendtoagentvote">isAttendToAgentVote</a></h3>
+<p>Mapping to track if a staker has participated in an agent vote.
+Maps staker to agent index to true/false.</p>
+<pre><code class="language-solidity">mapping(address =&gt; mapping(uint256 =&gt; bool)) public isAttendToAgentVote;
+</code></pre>
+<h3 id="isattendtopropertyvote"><a class="header" href="#isattendtopropertyvote">isAttendToPropertyVote</a></h3>
+<p>Mapping to track if a staker has participated in a property vote.
+Maps flag to staker to property index to true/false.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; mapping(address =&gt; mapping(uint256 =&gt; bool))) public isAttendToPropertyVote;
+</code></pre>
+<h3 id="userfilmvotecount"><a class="header" href="#userfilmvotecount">userFilmVoteCount</a></h3>
+<p>Mapping of users to the count of their film votes.</p>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) public userFilmVoteCount;
+</code></pre>
+<h3 id="usergovernvotecount"><a class="header" href="#usergovernvotecount">userGovernVoteCount</a></h3>
+<p>Mapping of users to the count of their governance votes.</p>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) public userGovernVoteCount;
+</code></pre>
+<h3 id="govpassedvotecount"><a class="header" href="#govpassedvotecount">govPassedVoteCount</a></h3>
+<p>Mapping of governance flags to the count of passed votes.
+Maps flag to passed vote count. Flags: 1 - agent, 2 - dispute, 3 - board, 4 - pool, 5 - property.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256) public govPassedVoteCount;
+</code></pre>
+<h3 id="lastvotetime"><a class="header" href="#lastvotetime">lastVoteTime</a></h3>
+<p><em>Mapping of stakers to their last vote timestamp.
+Maps staker address to block.timestamp used at <code>Property::removeFilmBoardMember()</code> to check if a film board
+member didn't vote during a given time period (which is the <code>Property::maxAllowPeriod</code>).</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) private lastVoteTime;
+</code></pre>
+<h3 id="proposalfilmids"><a class="header" href="#proposalfilmids">proposalFilmIds</a></h3>
+<p><em>Mapping of film IDs to proposal IDs.</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256) private proposalFilmIds;
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="onlydeployer"><a class="header" href="#onlydeployer">onlyDeployer</a></h3>
+<p><em>Restricts access to the deployer of the Ownable contract.</em></p>
+<pre><code class="language-solidity">modifier onlyDeployer();
+</code></pre>
+<h3 id="onlystaker"><a class="header" href="#onlystaker">onlyStaker</a></h3>
+<p><em>Restricts access to stakers.</em></p>
+<pre><code class="language-solidity">modifier onlyStaker();
+</code></pre>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p>Constructor to initialize the ownable address.</p>
+<pre><code class="language-solidity">constructor(address _ownable);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_ownable</code></td><td><code>address</code></td><td>Address of the ownable contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<p>Initialize Vote contract.</p>
+<p><em>Throws an error if already initialized or if any of the addresses are invalid.
+Only the Deployer is allowed to call this.</em></p>
+<pre><code class="language-solidity">function initialize(
+    address _vabbleDAO,
+    address _stakingPool,
+    address _property,
+    address _uniHelper
+)
+    external
+    onlyDeployer;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_vabbleDAO</code></td><td><code>address</code></td><td>Address of the VabbleDAO contract.</td></tr>
+<tr><td><code>_stakingPool</code></td><td><code>address</code></td><td>Address of the StakingPool contract.</td></tr>
+<tr><td><code>_property</code></td><td><code>address</code></td><td>Address of the Property contract.</td></tr>
+<tr><td><code>_uniHelper</code></td><td><code>address</code></td><td>Address of the UniHelper contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votetoproperty"><a class="header" href="#votetoproperty">voteToProperty</a></h3>
+<p>Stakers can vote to a property proposal.</p>
+<p><em>Throws an error if the caller is not a staker, has already voted, or the vote info is invalid.</em></p>
+<pre><code class="language-solidity">function voteToProperty(uint256 _voteInfo, uint256 _index, uint256 _flag) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_voteInfo</code></td><td><code>uint256</code></td><td>Vote information (1 for Yes, 2 for No).</td></tr>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+<tr><td><code>_flag</code></td><td><code>uint256</code></td><td>The flag representing the type of property. 0 - Film Vote Period 1 - Agent Vote Period 2 - Dispute Grace Period 3 - Property Vote Period 4 - Lock Period 5 - Reward Rate 6 - Film Reward Claim Period 7 - Max Allow Period 8 - Proposal Fee Amount 9 - Fund Fee Percent 10 - Minimum Deposit Amount 11 - Maximum Deposit Amount 12 - Maximum Mint Fee Percent 13 - Minimum Vote Count 14 - Minimum Staker Count Percent 15 - Available VAB Amount 16 - Board Vote Period 17 - Board Vote Weight 18 - Reward Vote Period 19 - Subscription Amount 20 - Board Reward Rate</td></tr>
+</tbody></table>
+</div>
+<h3 id="updateproperty"><a class="header" href="#updateproperty">updateProperty</a></h3>
+<p>Finalize property proposal based on vote results.</p>
+<p><em>Throws an error if the vote period has not ended or the proposal has already been approved.
+This will interact with the <code>Property</code> contract and update the property proposal accordingly.</em></p>
+<pre><code class="language-solidity">function updateProperty(uint256 _index, uint256 _flag) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+<tr><td><code>_flag</code></td><td><code>uint256</code></td><td>The flag representing the type of property. 0 - Film Vote Period 1 - Agent Vote Period 2 - Dispute Grace Period 3 - Property Vote Period 4 - Lock Period 5 - Reward Rate 6 - Film Reward Claim Period 7 - Max Allow Period 8 - Proposal Fee Amount 9 - Fund Fee Percent 10 - Minimum Deposit Amount 11 - Maximum Deposit Amount 12 - Maximum Mint Fee Percent 13 - Minimum Vote Count 14 - Minimum Staker Count Percent 15 - Available VAB Amount 16 - Board Vote Period 17 - Board Vote Weight 18 - Reward Vote Period 19 - Subscription Amount 20 - Board Reward Rate</td></tr>
+</tbody></table>
+</div>
+<h3 id="votetofilmboard"><a class="header" href="#votetofilmboard">voteToFilmBoard</a></h3>
+<p>Stakers vote to film board member proposal.</p>
+<p><em>Throws an error if the caller is not a staker, has already voted, or the vote info is invalid.</em></p>
+<pre><code class="language-solidity">function voteToFilmBoard(uint256 _index, uint256 _voteInfo) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+<tr><td><code>_voteInfo</code></td><td><code>uint256</code></td><td>Vote information (1 for Yes, 2 for No).</td></tr>
+</tbody></table>
+</div>
+<h3 id="addfilmboard"><a class="header" href="#addfilmboard">addFilmBoard</a></h3>
+<p>Finalize film board member proposal based on vote result.</p>
+<p><em>Throws an error if the vote period has not ended or the proposal has already been approved.
+This will interact with the <code>Property</code> contract and update the governance proposal to add a film board member
+accordingly.</em></p>
+<pre><code class="language-solidity">function addFilmBoard(uint256 _index) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votetoagent"><a class="header" href="#votetoagent">voteToAgent</a></h3>
+<p>Stakers vote to replace the current Auditor.</p>
+<p><em>Throws an error if the caller is not a staker, has already voted, or the vote info is invalid.</em></p>
+<pre><code class="language-solidity">function voteToAgent(uint256 _voteInfo, uint256 _index) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_voteInfo</code></td><td><code>uint256</code></td><td>Vote information (1 for Yes, 2 for No).</td></tr>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="updateagentstats"><a class="header" href="#updateagentstats">updateAgentStats</a></h3>
+<p>Update auditor proposal status based on vote result.</p>
+<p><em>Throws an error if the vote period has not ended or the proposal has already been updated.
+This will enable the auditor dispute period, when the proposal passed voting, otherwise the proposal will be
+rejected
+and there is no aditional dispute period needed.</em></p>
+<pre><code class="language-solidity">function updateAgentStats(uint256 _index) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="disputetoagent"><a class="header" href="#disputetoagent">disputeToAgent</a></h3>
+<p>Dispute an auditor proposal.</p>
+<p><em>Throws an error if the proposal status is not updated, or the dispute period has elapsed.
+This flow will only be available when the vote period is over and the auditor proposal passed voting.
+The user who wants to dispute has to either staked double the amount of the proposal creator or paid double of
+the proposal fee amount.</em></p>
+<pre><code class="language-solidity">function disputeToAgent(uint256 _index, bool _pay) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+<tr><td><code>_pay</code></td><td><code>bool</code></td><td>True if disputing by paying double the proposal fee, false if disputing by staking double the creators stake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="replaceauditor"><a class="header" href="#replaceauditor">replaceAuditor</a></h3>
+<p>Replace the current Auditor based on vote results.</p>
+<p><em>Throws an error if the proposal status is not updated or the dispute grace period has not ended.
+This can only be called if no one disputes the auditor change during the dispute phase.
+This will interact with the <code>Ownable</code> &amp; <code>Property</code> contract to replace the auditor.</em></p>
+<pre><code class="language-solidity">function replaceAuditor(uint256 _index) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votetorewardaddress"><a class="header" href="#votetorewardaddress">voteToRewardAddress</a></h3>
+<p>Stakers vote on a proposal to set the address to receive the DAO pool funds.</p>
+<p><em>Throws an error if the caller is not a staker, has already voted, or the vote info is invalid.</em></p>
+<pre><code class="language-solidity">function voteToRewardAddress(uint256 _index, uint256 _voteInfo) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+<tr><td><code>_voteInfo</code></td><td><code>uint256</code></td><td>Vote information (1 for Yes, 2 for No).</td></tr>
+</tbody></table>
+</div>
+<h3 id="setdaorewardaddress"><a class="header" href="#setdaorewardaddress">setDAORewardAddress</a></h3>
+<p>Finalize reward address proposal based on vote result.</p>
+<p><em>Throws an error if the vote period has not ended or the proposal has already been approved.
+This will interact with the <code>Property</code> contract and update the governance proposal to set the reward address
+accordingly. This will also trigger the <code>migration</code> flow of the DAO.</em></p>
+<pre><code class="language-solidity">function setDAORewardAddress(uint256 _index) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>Index of the proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votetofilms"><a class="header" href="#votetofilms">voteToFilms</a></h3>
+<p>Vote on multiple films in a single transaction.</p>
+<p><em>Throws an error if the arrays are of different lengths or if any vote info is invalid.</em></p>
+<pre><code class="language-solidity">function voteToFilms(uint256[] calldata _filmIds, uint256[] calldata _voteInfos) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmIds</code></td><td><code>uint256[]</code></td><td>Array of film IDs to vote on.</td></tr>
+<tr><td><code>_voteInfos</code></td><td><code>uint256[]</code></td><td>Array of vote information (1 for Yes, 2 for No) corresponding to each film.</td></tr>
+</tbody></table>
+</div>
+<h3 id="approvefilms"><a class="header" href="#approvefilms">approveFilms</a></h3>
+<p>Approve multiple films that have passed their vote period.</p>
+<p><em>Throws an error if the arrays are empty or exceed the maximum allowed length.</em></p>
+<pre><code class="language-solidity">function approveFilms(uint256[] calldata _filmIds) external onlyStaker nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmIds</code></td><td><code>uint256[]</code></td><td>Array of film IDs to approve.</td></tr>
+</tbody></table>
+</div>
+<h3 id="saveproposalwithfilm"><a class="header" href="#saveproposalwithfilm">saveProposalWithFilm</a></h3>
+<p>Save the proposal ID associated with a film ID.</p>
+<pre><code class="language-solidity">function saveProposalWithFilm(uint256 _filmId, uint256 _proposalID) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The ID of the film.</td></tr>
+<tr><td><code>_proposalID</code></td><td><code>uint256</code></td><td>The ID of the proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getlastvotetime"><a class="header" href="#getlastvotetime">getLastVoteTime</a></h3>
+<p>Get the last vote time of a member.</p>
+<p><em>This is used to track if a filmboard member can be removed because he didn't voted for a given time period.</em></p>
+<pre><code class="language-solidity">function getLastVoteTime(address _member) external view override returns (uint256 time_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_member</code></td><td><code>address</code></td><td>The address of the member.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>time_</code></td><td><code>uint256</code></td><td>The last vote time of the member.</td></tr>
+</tbody></table>
+</div>
+<h3 id="isdoublestaked"><a class="header" href="#isdoublestaked">isDoubleStaked</a></h3>
+<p>Check if a user has staked double the amount of the auditor change proposer.</p>
+<p><em>This is used to check if a user can dispute a auditor proposal.</em></p>
+<pre><code class="language-solidity">function isDoubleStaked(uint256 _index, address _user) public view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>The index of the proposal.</td></tr>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>The address of the user.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>True if the user has staked double the amount, false otherwise.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__votetofilm"><a class="header" href="#__votetofilm">__voteToFilm</a></h3>
+<p><em>Function to handle voting on a film.</em></p>
+<p>*This function handles the logic for voting on a film proposal.
+It throws an error if:</p>
+<ul>
+<li>The caller is the owner of the film.</li>
+<li>The caller has already voted on this film.</li>
+<li>The provided vote information is not 1 or 2.
+It also checks the status of the film and the voting period, and updates the voting records and the caller's vote
+count.*</li>
+</ul>
+<pre><code class="language-solidity">function __voteToFilm(uint256 _filmId, uint256 _voteInfo) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The ID of the film to vote on.</td></tr>
+<tr><td><code>_voteInfo</code></td><td><code>uint256</code></td><td>Vote information where 1 indicates 'Yes' and 2 indicates 'No'.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__approvefilm"><a class="header" href="#__approvefilm">__approveFilm</a></h3>
+<p><em>Function to approve a film based on voting results.</em></p>
+<p>*This function finalizes the film approval process based on the voting results.
+It throws an error if:</p>
+<ul>
+<li>The voting period has not ended.</li>
+<li>The film has already been approved.
+The function checks the voting outcomes and updates the film's approval status accordingly, also recording the
+reason for the decision.*</li>
+</ul>
+<pre><code class="language-solidity">function __approveFilm(uint256 _filmId) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The ID of the film to approve.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__paiddoublefee"><a class="header" href="#__paiddoublefee">__paidDoubleFee</a></h3>
+<p><em>Function to check if the proposal fee has been paid double.</em></p>
+<p><em>This function verifies if the user has paid double the required proposal fee in VAB tokens.
+A staker that wants to dispute a auditor proposal needs to either pay double the fee or stake double of the
+creator.
+It checks the user's balance, transfers the fee amount to the staking pool, and updates the staking pool's reward
+balance.
+The function returns true if the payment is successful, otherwise false.</em></p>
+<pre><code class="language-solidity">function __paidDoubleFee() private returns (bool paid_);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>paid_</code></td><td><code>bool</code></td><td>Returns true if the fee has been paid double, otherwise false.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__isvoteperiod"><a class="header" href="#__isvoteperiod">__isVotePeriod</a></h3>
+<p><em>Function to check if the vote period is still ongoing.</em></p>
+<p><em>This function calculates if the current time is within the vote period duration from the start time.
+It throws an error if the start time is zero.</em></p>
+<pre><code class="language-solidity">function __isVotePeriod(uint256 _period, uint256 _startTime) private view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_period</code></td><td><code>uint256</code></td><td>The duration of the vote period in seconds.</td></tr>
+<tr><td><code>_startTime</code></td><td><code>uint256</code></td><td>The start time of the vote period as a Unix timestamp.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Returns true if the vote period is still ongoing, otherwise false.</td></tr>
+</tbody></table>
+</div>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="votedtoproperty"><a class="header" href="#votedtoproperty">VotedToProperty</a></h3>
+<p>Emitted when a vote is cast for a property.</p>
+<pre><code class="language-solidity">event VotedToProperty(address indexed voter, uint256 flag, uint256 propertyVal, uint256 voteInfo, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>voter</code></td><td><code>address</code></td><td>The address of the voter.</td></tr>
+<tr><td><code>flag</code></td><td><code>uint256</code></td><td>The flag indicating the property type.</td></tr>
+<tr><td><code>propertyVal</code></td><td><code>uint256</code></td><td>The value of the property.</td></tr>
+<tr><td><code>voteInfo</code></td><td><code>uint256</code></td><td>The vote information.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the property proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votedtoagent"><a class="header" href="#votedtoagent">VotedToAgent</a></h3>
+<p>Emitted when a vote is cast for an agent.</p>
+<pre><code class="language-solidity">event VotedToAgent(address indexed voter, address indexed agent, uint256 voteInfo, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>voter</code></td><td><code>address</code></td><td>The address of the voter.</td></tr>
+<tr><td><code>agent</code></td><td><code>address</code></td><td>The address of the agent being voted on.</td></tr>
+<tr><td><code>voteInfo</code></td><td><code>uint256</code></td><td>The vote information (1 for yes, 2 for no).</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the agent proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votedtopooladdress"><a class="header" href="#votedtopooladdress">VotedToPoolAddress</a></h3>
+<p>Emitted when a vote is cast for a reward address.</p>
+<pre><code class="language-solidity">event VotedToPoolAddress(address indexed voter, address rewardAddress, uint256 voteInfo, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>voter</code></td><td><code>address</code></td><td>The address of the voter.</td></tr>
+<tr><td><code>rewardAddress</code></td><td><code>address</code></td><td>The address of the reward.</td></tr>
+<tr><td><code>voteInfo</code></td><td><code>uint256</code></td><td>The vote information.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the reward address proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votedtofilmboard"><a class="header" href="#votedtofilmboard">VotedToFilmBoard</a></h3>
+<p>Emitted when a vote is cast for a film board member.</p>
+<pre><code class="language-solidity">event VotedToFilmBoard(address indexed voter, address candidate, uint256 voteInfo, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>voter</code></td><td><code>address</code></td><td>The address of the voter.</td></tr>
+<tr><td><code>candidate</code></td><td><code>address</code></td><td>The address of the candidate.</td></tr>
+<tr><td><code>voteInfo</code></td><td><code>uint256</code></td><td>The vote information.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the film board proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="votedtofilm"><a class="header" href="#votedtofilm">VotedToFilm</a></h3>
+<p>Emitted when a vote is cast for a film.</p>
+<pre><code class="language-solidity">event VotedToFilm(address indexed voter, uint256 indexed filmId, uint256 voteInfo);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>voter</code></td><td><code>address</code></td><td>The address of the voter.</td></tr>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>The ID of the film being voted on.</td></tr>
+<tr><td><code>voteInfo</code></td><td><code>uint256</code></td><td>The vote information (1 for yes, 2 for no).</td></tr>
+</tbody></table>
+</div>
+<h3 id="propertyupdated"><a class="header" href="#propertyupdated">PropertyUpdated</a></h3>
+<p>Emitted when a property is updated.</p>
+<pre><code class="language-solidity">event PropertyUpdated(
+    uint256 indexed whichProperty, uint256 propertyValue, address caller, uint256 reason, uint256 index
+);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>whichProperty</code></td><td><code>uint256</code></td><td>The ID of the property.</td></tr>
+<tr><td><code>propertyValue</code></td><td><code>uint256</code></td><td>The value of the property.</td></tr>
+<tr><td><code>caller</code></td><td><code>address</code></td><td>The address of the caller who updated the property.</td></tr>
+<tr><td><code>reason</code></td><td><code>uint256</code></td><td>The reason for the update.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the property proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="updatedagentstats"><a class="header" href="#updatedagentstats">UpdatedAgentStats</a></h3>
+<p>Emitted when agent stats are updated.</p>
+<pre><code class="language-solidity">event UpdatedAgentStats(address indexed agent, address caller, uint256 reason, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>agent</code></td><td><code>address</code></td><td>The address of the agent.</td></tr>
+<tr><td><code>caller</code></td><td><code>address</code></td><td>The address of the caller who updated the stats.</td></tr>
+<tr><td><code>reason</code></td><td><code>uint256</code></td><td>The reason for the update.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the agent proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="disputedtoagent"><a class="header" href="#disputedtoagent">DisputedToAgent</a></h3>
+<p>Emitted when a dispute is raised against an agent.</p>
+<pre><code class="language-solidity">event DisputedToAgent(address indexed caller, address indexed agent, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>caller</code></td><td><code>address</code></td><td>The address of the caller raising the dispute.</td></tr>
+<tr><td><code>agent</code></td><td><code>address</code></td><td>The address of the agent being disputed.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the agent proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="auditorreplaced"><a class="header" href="#auditorreplaced">AuditorReplaced</a></h3>
+<p>Emitted when an auditor is replaced.</p>
+<pre><code class="language-solidity">event AuditorReplaced(address indexed agent, address caller);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>agent</code></td><td><code>address</code></td><td>The address of the replaced agent.</td></tr>
+<tr><td><code>caller</code></td><td><code>address</code></td><td>The address of the caller who replaced the auditor.</td></tr>
+</tbody></table>
+</div>
+<h3 id="pooladdressadded"><a class="header" href="#pooladdressadded">PoolAddressAdded</a></h3>
+<p>Emitted when a pool address is added.</p>
+<pre><code class="language-solidity">event PoolAddressAdded(address indexed pool, address caller, uint256 reason, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>pool</code></td><td><code>address</code></td><td>The address of the pool.</td></tr>
+<tr><td><code>caller</code></td><td><code>address</code></td><td>The address of the caller who added the pool address.</td></tr>
+<tr><td><code>reason</code></td><td><code>uint256</code></td><td>The reason for adding the pool address.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the pool address proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="filmboardadded"><a class="header" href="#filmboardadded">FilmBoardAdded</a></h3>
+<p>Emitted when a film board member is added.</p>
+<pre><code class="language-solidity">event FilmBoardAdded(address indexed boardMember, address caller, uint256 reason, uint256 index);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>boardMember</code></td><td><code>address</code></td><td>The address of the new board member.</td></tr>
+<tr><td><code>caller</code></td><td><code>address</code></td><td>The address of the caller who added the board member.</td></tr>
+<tr><td><code>reason</code></td><td><code>uint256</code></td><td>The reason for adding the board member.</td></tr>
+<tr><td><code>index</code></td><td><code>uint256</code></td><td>The index of the film board proposal.</td></tr>
+</tbody></table>
+</div>
+<h3 id="filmapproved"><a class="header" href="#filmapproved">FilmApproved</a></h3>
+<p>Emitted when a film is approved.</p>
+<pre><code class="language-solidity">event FilmApproved(uint256 indexed filmId, uint256 fundType, uint256 reason);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>The ID of the film.</td></tr>
+<tr><td><code>fundType</code></td><td><code>uint256</code></td><td>The type of fund (0 for distribution, 1 for funding).</td></tr>
+<tr><td><code>reason</code></td><td><code>uint256</code></td><td>The reason for approval.</td></tr>
+</tbody></table>
+</div>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="voting"><a class="header" href="#voting">Voting</a></h3>
+<p><em>Struct representing the details of a voting process.</em></p>
+<pre><code class="language-solidity">struct Voting {
+    uint256 stakeAmount_1;
+    uint256 stakeAmount_2;
+    uint256 voteCount_1;
+    uint256 voteCount_2;
+}
+</code></pre>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakeAmount_1</code></td><td><code>uint256</code></td><td>The total amount staked by voters who voted "yes".</td></tr>
+<tr><td><code>stakeAmount_2</code></td><td><code>uint256</code></td><td>The total amount staked by voters who voted "no".</td></tr>
+<tr><td><code>voteCount_1</code></td><td><code>uint256</code></td><td>The total number of votes cast as "yes".</td></tr>
+<tr><td><code>voteCount_2</code></td><td><code>uint256</code></td><td>The total number of votes cast as "no".</td></tr>
+</tbody></table>
+</div>
+<h3 id="agentvoting-1"><a class="header" href="#agentvoting-1">AgentVoting</a></h3>
+<p><em>Struct representing the details of an agent-specific voting process.</em></p>
+<pre><code class="language-solidity">struct AgentVoting {
+    uint256 stakeAmount_1;
+    uint256 stakeAmount_2;
+    uint256 voteCount_1;
+    uint256 voteCount_2;
+}
+</code></pre>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakeAmount_1</code></td><td><code>uint256</code></td><td>The total amount staked by voters who voted "yes".</td></tr>
+<tr><td><code>stakeAmount_2</code></td><td><code>uint256</code></td><td>The total amount staked by voters who voted "no".</td></tr>
+<tr><td><code>voteCount_1</code></td><td><code>uint256</code></td><td>The total number of votes cast as "yes".</td></tr>
+<tr><td><code>voteCount_2</code></td><td><code>uint256</code></td><td>The total number of votes cast as "no".</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../contracts/dao/VabbleNFT.sol/contract.VabbleNFT.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../contracts/interfaces/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../contracts/dao/VabbleNFT.sol/contract.VabbleNFT.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../contracts/interfaces/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

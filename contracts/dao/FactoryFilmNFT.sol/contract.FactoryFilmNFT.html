@@ -1,0 +1,567 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FactoryFilmNFT</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../book.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">contracts</li><li class="chapter-item expanded "><a href="../../../contracts/dao/index.html">❱ dao</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../contracts/dao/FactoryFilmNFT.sol/contract.FactoryFilmNFT.html" class="active">FactoryFilmNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/FactorySubNFT.sol/contract.FactorySubNFT.html">FactorySubNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/FactoryTierNFT.sol/contract.FactoryTierNFT.html">FactoryTierNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/Ownablee.sol/contract.Ownablee.html">Ownablee</a></li><li class="chapter-item "><a href="../../../contracts/dao/Property.sol/contract.Property.html">Property</a></li><li class="chapter-item "><a href="../../../contracts/dao/StakingPool.sol/contract.StakingPool.html">StakingPool</a></li><li class="chapter-item "><a href="../../../contracts/dao/Subscription.sol/contract.Subscription.html">Subscription</a></li><li class="chapter-item "><a href="../../../contracts/dao/UniHelper.sol/contract.UniHelper.html">UniHelper</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleDAO.sol/contract.VabbleDAO.html">VabbleDAO</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleFund.sol/contract.VabbleFund.html">VabbleFund</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleNFT.sol/contract.VabbleNFT.html">VabbleNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/Vote.sol/contract.Vote.html">Vote</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/interfaces/index.html">❱ interfaces</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/interfaces/IFactoryFilmNFT.sol/interface.IFactoryFilmNFT.html">IFactoryFilmNFT</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IOwnablee.sol/interface.IOwnablee.html">IOwnablee</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IProperty.sol/interface.IProperty.html">IProperty</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IStakingPool.sol/interface.IStakingPool.html">IStakingPool</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniHelper.sol/interface.IUniHelper.html">IUniHelper</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniswapV2Factory.sol/interface.IUniswapV2Factory.html">IUniswapV2Factory</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniswapV2Router.sol/interface.IUniswapV2Router.html">IUniswapV2Router</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVabbleDAO.sol/interface.IVabbleDAO.html">IVabbleDAO</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVabbleFund.sol/interface.IVabbleFund.html">IVabbleFund</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVote.sol/interface.IVote.html">IVote</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/libraries/index.html">❱ libraries</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/libraries/Arrays.sol/library.Arrays.html">Arrays</a></li><li class="chapter-item "><a href="../../../contracts/libraries/Helper.sol/library.Helper.html">Helper</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/mocks/index.html">❱ mocks</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/mocks/MockERC1155.sol/contract.MockERC1155.html">MockERC1155</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockERC20.sol/contract.MockERC20.html">MockERC20</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockERC721.sol/contract.MockERC721.html">MockERC721</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockUSDC.sol/contract.MockUSDC.html">MockUSDC</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockUSDT.sol/contract.MockUSDT.html">MockUSDT</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Mill1995/VABDAO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="factoryfilmnft"><a class="header" href="#factoryfilmnft">FactoryFilmNFT</a></h1>
+<p><a href="https://github.com/Mill1995/VABDAO/blob/4914bdc306cbdb860037485ce4bcebbfdd390c9f/contracts/dao/FactoryFilmNFT.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="/contracts/interfaces/IFactoryFilmNFT.sol/interface.IFactoryFilmNFT.html">IFactoryFilmNFT</a>, ReentrancyGuard</p>
+<p>This contract manages the creation and management of film-specific NFTs.
+It allows studios to deploy NFT contracts for their films, set minting parameters,
+and manage ownership of the NFT contracts. Users can claim allocated NFTs once
+funding for a film is fully raised. The contract integrates with VabbleDAO and
+VabbleFund contracts to validate ownership, funding status, and other parameters.</p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="ownable"><a class="header" href="#ownable">OWNABLE</a></h3>
+<p><em>Address of the Ownablee contract</em></p>
+<pre><code class="language-solidity">address private immutable OWNABLE;
+</code></pre>
+<h3 id="vabble_dao"><a class="header" href="#vabble_dao">VABBLE_DAO</a></h3>
+<p><em>Address of the VabbleDAO contract</em></p>
+<pre><code class="language-solidity">address private VABBLE_DAO;
+</code></pre>
+<h3 id="vabble_fund"><a class="header" href="#vabble_fund">VABBLE_FUND</a></h3>
+<p><em>Address of the VabbleFund contract</em></p>
+<pre><code class="language-solidity">address private VABBLE_FUND;
+</code></pre>
+<h3 id="baseuri"><a class="header" href="#baseuri">baseUri</a></h3>
+<p>Base URI for the metadata of all NFTs created by this contract.</p>
+<pre><code class="language-solidity">string public baseUri;
+</code></pre>
+<h3 id="collectionuri"><a class="header" href="#collectionuri">collectionUri</a></h3>
+<p>Collection URI for the metadata of all NFTs created by this contract.</p>
+<pre><code class="language-solidity">string public collectionUri;
+</code></pre>
+<h3 id="nftinfo"><a class="header" href="#nftinfo">nftInfo</a></h3>
+<p>Mapping to store information about each deployed NFT contract.</p>
+<pre><code class="language-solidity">mapping(address =&gt; FilmNFT) public nftInfo;
+</code></pre>
+<h3 id="studionftaddresslist"><a class="header" href="#studionftaddresslist">studioNFTAddressList</a></h3>
+<p>Mapping to store a list of NFT contract addresses deployed by each studio.</p>
+<pre><code class="language-solidity">mapping(address =&gt; address[]) public studioNFTAddressList;
+</code></pre>
+<h3 id="filmnftcontract"><a class="header" href="#filmnftcontract">filmNFTContract</a></h3>
+<p>Mapping to store deployed VabbleNFT contracts for each film ID.</p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; VabbleNFT) public filmNFTContract;
+</code></pre>
+<h3 id="filmnfttokenlist"><a class="header" href="#filmnfttokenlist">filmNFTTokenList</a></h3>
+<p><em>Mapping to store a list of token IDs minted for each film ID.</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256[]) private filmNFTTokenList;
+</code></pre>
+<h3 id="mintinfo"><a class="header" href="#mintinfo">mintInfo</a></h3>
+<p><em>Mapping to store minting information for each film ID.</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; Mint) private mintInfo;
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="onlyauditor"><a class="header" href="#onlyauditor">onlyAuditor</a></h3>
+<p><em>Restricts access to the current Auditor.</em></p>
+<pre><code class="language-solidity">modifier onlyAuditor();
+</code></pre>
+<h3 id="onlydeployer"><a class="header" href="#onlydeployer">onlyDeployer</a></h3>
+<p><em>Restricts access to the deployer of the ownable contract.</em></p>
+<pre><code class="language-solidity">modifier onlyDeployer();
+</code></pre>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p><em>Constructor to initialize the FactoryFilmNFT contract.</em></p>
+<pre><code class="language-solidity">constructor(address _ownable);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_ownable</code></td><td><code>address</code></td><td>Address of the Ownablee contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<p>Initialize the addresses of VabbleDAO and VabbleFund contracts.</p>
+<p><em>Only callable by the deployer of the Ownablee contract.</em></p>
+<pre><code class="language-solidity">function initialize(address _vabbleDAO, address _vabbleFund) external onlyDeployer;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_vabbleDAO</code></td><td><code>address</code></td><td>Address of the VabbleDAO contract.</td></tr>
+<tr><td><code>_vabbleFund</code></td><td><code>address</code></td><td>Address of the VabbleFund contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="setbaseuri"><a class="header" href="#setbaseuri">setBaseURI</a></h3>
+<p>Set baseURI and collectionURI for all NFTs created by this contract.</p>
+<p><em>Only callable by the Auditor.</em></p>
+<pre><code class="language-solidity">function setBaseURI(string memory _baseUri, string memory _collectionUri) external onlyAuditor;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_baseUri</code></td><td><code>string</code></td><td>Base URI for all NFTs.</td></tr>
+<tr><td><code>_collectionUri</code></td><td><code>string</code></td><td>Collection URI for all NFTs.</td></tr>
+</tbody></table>
+</div>
+<h3 id="setmintinfo"><a class="header" href="#setmintinfo">setMintInfo</a></h3>
+<p>Set minting information for a film.</p>
+<p><em>Only callable by the owner of the film.</em></p>
+<pre><code class="language-solidity">function setMintInfo(uint256 _filmId, uint256 _tier, uint256 _amount, uint256 _price) external nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+<tr><td><code>_tier</code></td><td><code>uint256</code></td><td>Tier of the minting configuration.</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Maximum number of NFTs that can be minted.</td></tr>
+<tr><td><code>_price</code></td><td><code>uint256</code></td><td>Price in USDC to mint one NFT.</td></tr>
+</tbody></table>
+</div>
+<h3 id="deployfilmnftcontract"><a class="header" href="#deployfilmnftcontract">deployFilmNFTContract</a></h3>
+<p>Studio deploys an NFT contract for a specific film.</p>
+<p><em>Only callable by the owner of the film and when the film is approved for NFT funding.</em></p>
+<pre><code class="language-solidity">function deployFilmNFTContract(uint256 _filmId, string memory _name, string memory _symbol) external nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+<tr><td><code>_name</code></td><td><code>string</code></td><td>Name of the NFT contract.</td></tr>
+<tr><td><code>_symbol</code></td><td><code>string</code></td><td>Symbol of the NFT contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="claimnft"><a class="header" href="#claimnft">claimNft</a></h3>
+<p>Claim NFTs allocated for the caller for a specific film.</p>
+<p><em>Only callable when NFTs are deployed for the film, caller has allocated NFTs, and funding is fully raised.</em></p>
+<pre><code class="language-solidity">function claimNft(uint256 _filmId) external nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+</tbody></table>
+</div>
+<h3 id="changeowner"><a class="header" href="#changeowner">changeOwner</a></h3>
+<p>Change the owner of a film's ERC721 contract.</p>
+<p><em>Only callable by the current owner of the film's ERC721 contract.</em></p>
+<pre><code class="language-solidity">function changeOwner(uint256 _filmId, address newOwner) external nonReentrant returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+<tr><td><code>newOwner</code></td><td><code>address</code></td><td>Address of the new owner.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>success Boolean indicating whether the owner change was successful.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getmintinfo"><a class="header" href="#getmintinfo">getMintInfo</a></h3>
+<p>Get minting information for a specific film.</p>
+<pre><code class="language-solidity">function getMintInfo(uint256 _filmId)
+    external
+    view
+    override
+    returns (uint256 tier_, uint256 maxMintAmount_, uint256 mintPrice_, address nft_, address studio_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>tier_</code></td><td><code>uint256</code></td><td>Tier of the minting configuration.</td></tr>
+<tr><td><code>maxMintAmount_</code></td><td><code>uint256</code></td><td>Maximum number of NFTs that can be minted.</td></tr>
+<tr><td><code>mintPrice_</code></td><td><code>uint256</code></td><td>Price in USDC to mint one NFT.</td></tr>
+<tr><td><code>nft_</code></td><td><code>address</code></td><td>Address of the deployed NFT contract.</td></tr>
+<tr><td><code>studio_</code></td><td><code>address</code></td><td>Address of the studio that owns the film's NFT.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getnftowner"><a class="header" href="#getnftowner">getNFTOwner</a></h3>
+<p>Get the owner of a specific NFT token.</p>
+<pre><code class="language-solidity">function getNFTOwner(uint256 _filmId, uint256 _tokenId) external view returns (address);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+<tr><td><code>_tokenId</code></td><td><code>uint256</code></td><td>ID of the NFT token.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>address</code></td><td>Address of the owner of the NFT token.</td></tr>
+</tbody></table>
+</div>
+<h3 id="gettokenuri"><a class="header" href="#gettokenuri">getTokenUri</a></h3>
+<p>Get the URI of a specific NFT token.</p>
+<pre><code class="language-solidity">function getTokenUri(uint256 _filmId, uint256 _tokenId) external view returns (string memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+<tr><td><code>_tokenId</code></td><td><code>uint256</code></td><td>ID of the NFT token.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>string</code></td><td>URI of the NFT token.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmnfttokenlist"><a class="header" href="#getfilmnfttokenlist">getFilmNFTTokenList</a></h3>
+<p>Get the list of token IDs minted for a specific film.</p>
+<pre><code class="language-solidity">function getFilmNFTTokenList(uint256 _filmId) external view returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>Array of token IDs.</td></tr>
+</tbody></table>
+</div>
+<h3 id="gettotalsupply"><a class="header" href="#gettotalsupply">getTotalSupply</a></h3>
+<p>Get the total supply of NFTs minted for a specific film.</p>
+<pre><code class="language-solidity">function getTotalSupply(uint256 _filmId) public view override returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>Total number of NFTs minted.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getusertokenidlist"><a class="header" href="#getusertokenidlist">getUserTokenIdList</a></h3>
+<p>Get the list of token IDs owned by a specific user for a film.</p>
+<pre><code class="language-solidity">function getUserTokenIdList(uint256 _filmId, address _owner) public view returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film.</td></tr>
+<tr><td><code>_owner</code></td><td><code>address</code></td><td>Address of the owner.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>Array of token IDs owned by the owner.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getvabbledao"><a class="header" href="#getvabbledao">getVabbleDAO</a></h3>
+<p>Get the address of the VabbleDAO contract.</p>
+<pre><code class="language-solidity">function getVabbleDAO() public view returns (address dao_);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>dao_</code></td><td><code>address</code></td><td>Address of the VabbleDAO contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__mint"><a class="header" href="#__mint">__mint</a></h3>
+<p><em>Mint a new NFT for the caller and update internal records.</em></p>
+<p><em>This function is called internally to mint an NFT for the given film ID.</em></p>
+<pre><code class="language-solidity">function __mint(uint256 _filmId) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film for which the NFT is being minted.</td></tr>
+</tbody></table>
+</div>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="filmerc721created"><a class="header" href="#filmerc721created">FilmERC721Created</a></h3>
+<p><em>Emitted when a new film-specific ERC721 contract is created.</em></p>
+<pre><code class="language-solidity">event FilmERC721Created(address nftCreator, address nftContract, uint256 indexed filmId);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>nftCreator</code></td><td><code>address</code></td><td>Address of the studio creating the NFT contract.</td></tr>
+<tr><td><code>nftContract</code></td><td><code>address</code></td><td>Address of the newly created NFT contract.</td></tr>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>ID of the film associated with the NFT contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="filmerc721minted"><a class="header" href="#filmerc721minted">FilmERC721Minted</a></h3>
+<p><em>Emitted when a film-specific ERC721 token is minted.</em></p>
+<pre><code class="language-solidity">event FilmERC721Minted(address nftContract, uint256 indexed filmId, uint256 indexed tokenId, address receiver);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>nftContract</code></td><td><code>address</code></td><td>Address of the NFT contract.</td></tr>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>ID of the film associated with the NFT.</td></tr>
+<tr><td><code>tokenId</code></td><td><code>uint256</code></td><td>ID of the minted token.</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td>Address of the receiver of the minted token.</td></tr>
+</tbody></table>
+</div>
+<h3 id="mintinfosetted"><a class="header" href="#mintinfosetted">MintInfoSetted</a></h3>
+<p><em>Emitted when minting information is set for a film.</em></p>
+<pre><code class="language-solidity">event MintInfoSetted(address filmOwner, uint256 indexed filmId, uint256 tier, uint256 mintAmount, uint256 mintPrice);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmOwner</code></td><td><code>address</code></td><td>Address of the studio setting the minting information.</td></tr>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>ID of the film associated with the minting information.</td></tr>
+<tr><td><code>tier</code></td><td><code>uint256</code></td><td>Tier of the minting configuration.</td></tr>
+<tr><td><code>mintAmount</code></td><td><code>uint256</code></td><td>Maximum number of NFTs that can be minted.</td></tr>
+<tr><td><code>mintPrice</code></td><td><code>uint256</code></td><td>Price in USDC to mint one NFT.</td></tr>
+</tbody></table>
+</div>
+<h3 id="changeerc721filmowner"><a class="header" href="#changeerc721filmowner">ChangeERC721FilmOwner</a></h3>
+<p><em>Emitted when the ownership of a film's ERC721 contract changes.</em></p>
+<pre><code class="language-solidity">event ChangeERC721FilmOwner(uint256 indexed filmId, address indexed oldOwner, address indexed newOwner);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>ID of the film associated with the ERC721 contract.</td></tr>
+<tr><td><code>oldOwner</code></td><td><code>address</code></td><td>Address of the previous owner of the ERC721 contract.</td></tr>
+<tr><td><code>newOwner</code></td><td><code>address</code></td><td>Address of the new owner of the ERC721 contract.</td></tr>
+</tbody></table>
+</div>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="mint"><a class="header" href="#mint">Mint</a></h3>
+<p><em>Struct containing minting parameters for each film.</em></p>
+<pre><code class="language-solidity">struct Mint {
+    uint256 tier;
+    uint256 maxMintAmount;
+    uint256 price;
+    address nft;
+    address studio;
+}
+</code></pre>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>tier</code></td><td><code>uint256</code></td><td>Tier of the minting configuration (e.g., 1, 2, 3).</td></tr>
+<tr><td><code>maxMintAmount</code></td><td><code>uint256</code></td><td>Maximum number of NFTs that can be minted for this film.</td></tr>
+<tr><td><code>price</code></td><td><code>uint256</code></td><td>Price in USDC (scaled by 1e6) to mint one NFT for this film.</td></tr>
+<tr><td><code>nft</code></td><td><code>address</code></td><td>Address of the deployed NFT contract for this film.</td></tr>
+<tr><td><code>studio</code></td><td><code>address</code></td><td>Address of the studio that owns this film's NFT.</td></tr>
+</tbody></table>
+</div>
+<h3 id="filmnft"><a class="header" href="#filmnft">FilmNFT</a></h3>
+<p><em>Struct containing basic information about a film's NFT.</em></p>
+<pre><code class="language-solidity">struct FilmNFT {
+    string name;
+    string symbol;
+}
+</code></pre>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Name of the NFT associated with the film.</td></tr>
+<tr><td><code>symbol</code></td><td><code>string</code></td><td>Symbol of the NFT associated with the film.</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../contracts/dao/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../contracts/dao/FactorySubNFT.sol/contract.FactorySubNFT.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../contracts/dao/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../contracts/dao/FactorySubNFT.sol/contract.FactorySubNFT.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

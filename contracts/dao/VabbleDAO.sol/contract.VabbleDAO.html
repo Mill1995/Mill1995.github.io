@@ -1,0 +1,1010 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>VabbleDAO</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../book.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">contracts</li><li class="chapter-item expanded "><a href="../../../contracts/dao/index.html">❱ dao</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/dao/FactoryFilmNFT.sol/contract.FactoryFilmNFT.html">FactoryFilmNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/FactorySubNFT.sol/contract.FactorySubNFT.html">FactorySubNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/FactoryTierNFT.sol/contract.FactoryTierNFT.html">FactoryTierNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/Ownablee.sol/contract.Ownablee.html">Ownablee</a></li><li class="chapter-item "><a href="../../../contracts/dao/Property.sol/contract.Property.html">Property</a></li><li class="chapter-item "><a href="../../../contracts/dao/StakingPool.sol/contract.StakingPool.html">StakingPool</a></li><li class="chapter-item "><a href="../../../contracts/dao/Subscription.sol/contract.Subscription.html">Subscription</a></li><li class="chapter-item "><a href="../../../contracts/dao/UniHelper.sol/contract.UniHelper.html">UniHelper</a></li><li class="chapter-item expanded "><a href="../../../contracts/dao/VabbleDAO.sol/contract.VabbleDAO.html" class="active">VabbleDAO</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleFund.sol/contract.VabbleFund.html">VabbleFund</a></li><li class="chapter-item "><a href="../../../contracts/dao/VabbleNFT.sol/contract.VabbleNFT.html">VabbleNFT</a></li><li class="chapter-item "><a href="../../../contracts/dao/Vote.sol/contract.Vote.html">Vote</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/interfaces/index.html">❱ interfaces</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/interfaces/IFactoryFilmNFT.sol/interface.IFactoryFilmNFT.html">IFactoryFilmNFT</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IOwnablee.sol/interface.IOwnablee.html">IOwnablee</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IProperty.sol/interface.IProperty.html">IProperty</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IStakingPool.sol/interface.IStakingPool.html">IStakingPool</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniHelper.sol/interface.IUniHelper.html">IUniHelper</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniswapV2Factory.sol/interface.IUniswapV2Factory.html">IUniswapV2Factory</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IUniswapV2Router.sol/interface.IUniswapV2Router.html">IUniswapV2Router</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVabbleDAO.sol/interface.IVabbleDAO.html">IVabbleDAO</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVabbleFund.sol/interface.IVabbleFund.html">IVabbleFund</a></li><li class="chapter-item "><a href="../../../contracts/interfaces/IVote.sol/interface.IVote.html">IVote</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/libraries/index.html">❱ libraries</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/libraries/Arrays.sol/library.Arrays.html">Arrays</a></li><li class="chapter-item "><a href="../../../contracts/libraries/Helper.sol/library.Helper.html">Helper</a></li></ol></li><li class="chapter-item "><a href="../../../contracts/mocks/index.html">❱ mocks</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../contracts/mocks/MockERC1155.sol/contract.MockERC1155.html">MockERC1155</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockERC20.sol/contract.MockERC20.html">MockERC20</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockERC721.sol/contract.MockERC721.html">MockERC721</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockUSDC.sol/contract.MockUSDC.html">MockUSDC</a></li><li class="chapter-item "><a href="../../../contracts/mocks/MockUSDT.sol/contract.MockUSDT.html">MockUSDT</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Mill1995/VABDAO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="vabbledao"><a class="header" href="#vabbledao">VabbleDAO</a></h1>
+<p><a href="https://github.com/Mill1995/VABDAO/blob/4914bdc306cbdb860037485ce4bcebbfdd390c9f/contracts/dao/VabbleDAO.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+ReentrancyGuard</p>
+<p>The VabbleDAO contract manages the creation and updating of film proposals,
+reward distribution, payment processing,
+and claims related to film projects within the Vabble decentralized platform.</p>
+<p>*This contract contains various functions to handle film proposals, finalize films,
+and distribute rewards to both studio payees and investors. It interacts with multiple
+external contracts such as Property, Ownablee, UniHelper, StakingPool, and VabbleFund
+to perform these operations. The contract ensures proper reward calculation and distribution
+based on the film's status and the amount raised.
+Key Features:</p>
+<ul>
+<li>Film proposal creation and approval times tracking.</li>
+<li>Reward calculation and distribution for both studio payees and investors.</li>
+<li>Finalization of film rewards based on status (listing or funding).</li>
+<li>Secure handling of proposal fees and reward claims.*</li>
+</ul>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="ownable"><a class="header" href="#ownable">OWNABLE</a></h3>
+<p>Address of the Ownable contract</p>
+<pre><code class="language-solidity">address public immutable OWNABLE;
+</code></pre>
+<h3 id="vote"><a class="header" href="#vote">VOTE</a></h3>
+<p>Address of the Vote contract</p>
+<pre><code class="language-solidity">address public immutable VOTE;
+</code></pre>
+<h3 id="staking_pool"><a class="header" href="#staking_pool">STAKING_POOL</a></h3>
+<p>Address of the StakingPool contract</p>
+<pre><code class="language-solidity">address public immutable STAKING_POOL;
+</code></pre>
+<h3 id="uni_helper"><a class="header" href="#uni_helper">UNI_HELPER</a></h3>
+<p>Address of the UniHelper contract</p>
+<pre><code class="language-solidity">address public immutable UNI_HELPER;
+</code></pre>
+<h3 id="dao_property"><a class="header" href="#dao_property">DAO_PROPERTY</a></h3>
+<p>Address of the DAO property</p>
+<pre><code class="language-solidity">address public immutable DAO_PROPERTY;
+</code></pre>
+<h3 id="vabble_fund"><a class="header" href="#vabble_fund">VABBLE_FUND</a></h3>
+<p>Address of the Vabble fund</p>
+<pre><code class="language-solidity">address public immutable VABBLE_FUND;
+</code></pre>
+<h3 id="studiopool"><a class="header" href="#studiopool">StudioPool</a></h3>
+<p>Total VAB tokens in the StudioPool</p>
+<pre><code class="language-solidity">uint256 public StudioPool;
+</code></pre>
+<h3 id="filmcount"><a class="header" href="#filmcount">filmCount</a></h3>
+<p>Counter for the total number of created films</p>
+<p><em>Film IDs start from 1 and increment for each new film create</em></p>
+<pre><code class="language-solidity">Counters.Counter public filmCount;
+</code></pre>
+<h3 id="updatedfilmcount"><a class="header" href="#updatedfilmcount">updatedFilmCount</a></h3>
+<p>Counter for the total number of updated films</p>
+<p><em>Updated film IDs start from 1 and increment for each updated film</em></p>
+<pre><code class="language-solidity">Counters.Counter public updatedFilmCount;
+</code></pre>
+<h3 id="monthid"><a class="header" href="#monthid">monthId</a></h3>
+<p>Counter for the current month ID</p>
+<p><em>Month IDs increment for each new month</em></p>
+<pre><code class="language-solidity">Counters.Counter public monthId;
+</code></pre>
+<h3 id="studiopoolusers"><a class="header" href="#studiopoolusers">studioPoolUsers</a></h3>
+<p><em>List of users in the StudioPool</em></p>
+<pre><code class="language-solidity">address[] private studioPoolUsers;
+</code></pre>
+<h3 id="edgepoolusers"><a class="header" href="#edgepoolusers">edgePoolUsers</a></h3>
+<p><em>List of users in the EdgePool</em></p>
+<pre><code class="language-solidity">address[] private edgePoolUsers;
+</code></pre>
+<h3 id="filminfo"><a class="header" href="#filminfo">filmInfo</a></h3>
+<p>Mapping of film IDs to film information</p>
+<p><em>Maps each film ID to its corresponding film information</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; IVabbleDAO.Film) public filmInfo;
+</code></pre>
+<h3 id="finalizedamount"><a class="header" href="#finalizedamount">finalizedAmount</a></h3>
+<p>Mapping of finalized amounts by film ID, month ID, and user address</p>
+<p><em>Maps film ID and month ID to user addresses and their finalized amounts</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; mapping(uint256 =&gt; mapping(address =&gt; uint256))) public finalizedAmount;
+</code></pre>
+<h3 id="latestclaimmonthid"><a class="header" href="#latestclaimmonthid">latestClaimMonthId</a></h3>
+<p>Mapping of latest claim month ID by film ID and user address</p>
+<p><em>Maps film ID to user addresses and their latest claim month IDs</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; mapping(address =&gt; uint256)) public latestClaimMonthId;
+</code></pre>
+<h3 id="finalfilmcalledtime"><a class="header" href="#finalfilmcalledtime">finalFilmCalledTime</a></h3>
+<p>Mapping of finalized film call times by film ID</p>
+<p><em>Maps film ID to the timestamp when the film was finalized</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256) public finalFilmCalledTime;
+</code></pre>
+<h3 id="totalfilmids"><a class="header" href="#totalfilmids">totalFilmIds</a></h3>
+<p><em>Mapping of flags to film ID lists</em></p>
+<p><em>Flags indicate different states:
+1 = proposal, 2 = approveListing, 3 = approveFunding, 4 = updated</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256[]) private totalFilmIds;
+</code></pre>
+<h3 id="userfilmids"><a class="header" href="#userfilmids">userFilmIds</a></h3>
+<p><em>Mapping of user addresses to film ID lists by flag</em></p>
+<p><em>(user =&gt; (flag =&gt; filmId list))</em></p>
+<p><em>Flags indicate different user actions:
+1 = create, 2 = update, 3 = approve, 4 = final</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; mapping(uint256 =&gt; uint256[])) private userFilmIds;
+</code></pre>
+<h3 id="finalizedfilmids"><a class="header" href="#finalizedfilmids">finalizedFilmIds</a></h3>
+<p><em>Mapping of month IDs to finalized film ID lists</em></p>
+<p><em>Maps each month ID to a list of finalized film IDs</em></p>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256[]) private finalizedFilmIds;
+</code></pre>
+<h3 id="isinvested"><a class="header" href="#isinvested">isInvested</a></h3>
+<p><em>Mapping of investment status by investor address and film ID</em></p>
+<p><em>Maps investor addresses to film IDs indicating if they have invested (true/false)</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; mapping(uint256 =&gt; bool)) private isInvested;
+</code></pre>
+<h3 id="isstudiopooluser"><a class="header" href="#isstudiopooluser">isStudioPoolUser</a></h3>
+<p><em>Mapping indicating if an address is a StudioPool user</em></p>
+<p><em>Maps user addresses to boolean values indicating StudioPool membership</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; bool) private isStudioPoolUser;
+</code></pre>
+<h3 id="isedgepooluser"><a class="header" href="#isedgepooluser">isEdgePoolUser</a></h3>
+<p><em>Mapping indicating if an address is an EdgePool user</em></p>
+<p><em>Maps user addresses to boolean values indicating EdgePool membership</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; bool) private isEdgePoolUser;
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="onlyauditor"><a class="header" href="#onlyauditor">onlyAuditor</a></h3>
+<p><em>Restricts access to the current Auditor.</em></p>
+<pre><code class="language-solidity">modifier onlyAuditor();
+</code></pre>
+<h3 id="onlyvote"><a class="header" href="#onlyvote">onlyVote</a></h3>
+<p><em>Restricts access to the Vote contract.</em></p>
+<pre><code class="language-solidity">modifier onlyVote();
+</code></pre>
+<h3 id="onlystakingpool"><a class="header" href="#onlystakingpool">onlyStakingPool</a></h3>
+<p><em>Restricts access to the StakingPool contract.</em></p>
+<pre><code class="language-solidity">modifier onlyStakingPool();
+</code></pre>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p><em>Constructor for the VabbleDAO contract</em></p>
+<pre><code class="language-solidity">constructor(
+    address _ownable,
+    address _uniHelper,
+    address _vote,
+    address _staking,
+    address _property,
+    address _vabbleFund
+);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_ownable</code></td><td><code>address</code></td><td>The address of the Ownable contract</td></tr>
+<tr><td><code>_uniHelper</code></td><td><code>address</code></td><td>The address of the UniHelper contract</td></tr>
+<tr><td><code>_vote</code></td><td><code>address</code></td><td>The address of the Vote contract</td></tr>
+<tr><td><code>_staking</code></td><td><code>address</code></td><td>The address of the StakingPool contract</td></tr>
+<tr><td><code>_property</code></td><td><code>address</code></td><td>The address of the Property contract</td></tr>
+<tr><td><code>_vabbleFund</code></td><td><code>address</code></td><td>The address of the VabbleFund contract</td></tr>
+</tbody></table>
+</div>
+<h3 id="receive"><a class="header" href="#receive">receive</a></h3>
+<pre><code class="language-solidity">receive() external payable;
+</code></pre>
+<h3 id="proposalfilmcreate"><a class="header" href="#proposalfilmcreate">proposalFilmCreate</a></h3>
+<p>Creates a film proposal</p>
+<p>User has to pay the current proposal fee</p>
+<pre><code class="language-solidity">function proposalFilmCreate(uint256 _fundType, uint256 _noVote, address _feeToken) external payable nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_fundType</code></td><td><code>uint256</code></td><td>Distribution =&gt; 0, Token =&gt; 1, NFT =&gt; 2, NFT &amp; Token =&gt; 3</td></tr>
+<tr><td><code>_noVote</code></td><td><code>uint256</code></td><td>If the proposal can skip voting phase 0 = false, 1 = true</td></tr>
+<tr><td><code>_feeToken</code></td><td><code>address</code></td><td>Must be a deposit asset added in the Ownable contract</td></tr>
+</tbody></table>
+</div>
+<h3 id="proposalfilmupdate"><a class="header" href="#proposalfilmupdate">proposalFilmUpdate</a></h3>
+<p>Update the details of an existing film proposal</p>
+<p>*This function allows the film owner to update the details of their film proposal.
+It verifies the validity of the input parameters, ensuring that the share percentages
+and studio payee addresses are correctly specified and that other conditions are met
+based on the type of funding. The function updates the film proposal details and adjusts
+related records and mappings accordingly.
+Requirements:</p>
+<ul>
+<li><code>_studioPayees</code> must not be empty.</li>
+<li>The length of <code>_studioPayees</code> must equal the length of <code>_sharePercents</code>.</li>
+<li><code>_title</code> must not be an empty string.</li>
+<li>If the film requires funding (<code>fundType != 0</code>):</li>
+<li><code>_fundPeriod</code> must be non-zero.</li>
+<li><code>_raiseAmount</code> must be greater than the minimum deposit amount defined in the DAO properties.</li>
+<li><code>_rewardPercent</code> must not exceed 100% (1e10 basis points).</li>
+<li>If the film does not require funding (<code>fundType == 0</code>):</li>
+<li><code>_rewardPercent</code> must be zero.</li>
+<li>The total of <code>_sharePercents</code> must equal 100% (1e10 basis points).</li>
+<li>The film proposal must have a status of <code>LISTED</code>.</li>
+<li>The caller must be the owner of the film proposal.
+Effects:</li>
+<li>Updates the film proposal details.</li>
+<li>Updates the timestamp of proposal creation.</li>
+<li>Updates the status of the film proposal to <code>UPDATED</code>.</li>
+<li>Increments the <code>updatedFilmCount</code>.</li>
+<li>Records the film ID in the list of updated film proposals for the current month.</li>
+<li>Records the film ID in the list of film proposals updated by the user.</li>
+<li>Adds a new proposal in the staking pool contract used to calculate staker rewards.</li>
+<li>If the film requires funding and voting is skipped, it directly approves the film for funding.*</li>
+</ul>
+<pre><code class="language-solidity">function proposalFilmUpdate(
+    uint256 _filmId,
+    string memory _title,
+    string memory _description,
+    uint256[] calldata _sharePercents,
+    address[] calldata _studioPayees,
+    uint256 _raiseAmount,
+    uint256 _fundPeriod,
+    uint256 _rewardPercent,
+    uint256 _enableClaimer
+)
+    external
+    nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The unique identifier of the film proposal to update</td></tr>
+<tr><td><code>_title</code></td><td><code>string</code></td><td>The title of the film</td></tr>
+<tr><td><code>_description</code></td><td><code>string</code></td><td>The description of the film</td></tr>
+<tr><td><code>_sharePercents</code></td><td><code>uint256[]</code></td><td>An array of share percentages for the studio payees</td></tr>
+<tr><td><code>_studioPayees</code></td><td><code>address[]</code></td><td>An array of addresses for the studio payees</td></tr>
+<tr><td><code>_raiseAmount</code></td><td><code>uint256</code></td><td>The amount to raise for funding</td></tr>
+<tr><td><code>_fundPeriod</code></td><td><code>uint256</code></td><td>The duration of the funding period in seconds</td></tr>
+<tr><td><code>_rewardPercent</code></td><td><code>uint256</code></td><td>The reward percentage allocated for funders (in basis points)</td></tr>
+<tr><td><code>_enableClaimer</code></td><td><code>uint256</code></td><td>A flag to enable or disable the claimer (1 = enabled, 0 = disabled)</td></tr>
+</tbody></table>
+</div>
+<h3 id="changeowner"><a class="header" href="#changeowner">changeOwner</a></h3>
+<p>Change owner of a film</p>
+<pre><code class="language-solidity">function changeOwner(uint256 _filmId, address newOwner) external nonReentrant returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film to change owner</td></tr>
+<tr><td><code>newOwner</code></td><td><code>address</code></td><td>New owner address</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>success Boolean indicating success of the operation</td></tr>
+</tbody></table>
+</div>
+<h3 id="approvefilmbyvote"><a class="header" href="#approvefilmbyvote">approveFilmByVote</a></h3>
+<p>Updates the film's approval status accordingly</p>
+<pre><code class="language-solidity">function approveFilmByVote(uint256 _filmId, uint256 _flag) external onlyVote;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film to approve</td></tr>
+<tr><td><code>_flag</code></td><td><code>uint256</code></td><td>Flag: 0 for film funding, 1 for listing film</td></tr>
+</tbody></table>
+</div>
+<h3 id="updatefilmfundperiod"><a class="header" href="#updatefilmfundperiod">updateFilmFundPeriod</a></h3>
+<p>Update film fund period by studio</p>
+<pre><code class="language-solidity">function updateFilmFundPeriod(uint256 _filmId, uint256 _fundPeriod) external nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film to update fund period</td></tr>
+<tr><td><code>_fundPeriod</code></td><td><code>uint256</code></td><td>New fund period in seconds</td></tr>
+</tbody></table>
+</div>
+<h3 id="allocatetopool"><a class="header" href="#allocatetopool">allocateToPool</a></h3>
+<p>Allocate VAB from StakingPool(user balance) to EdgePool(Ownable)/StudioPool(VabbleDAO) by Auditor</p>
+<pre><code class="language-solidity">function allocateToPool(
+    address[] calldata _users,
+    uint256[] calldata _amounts,
+    uint256 _which
+)
+    external
+    onlyAuditor
+    nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_users</code></td><td><code>address[]</code></td><td>Array of users to allocate VAB</td></tr>
+<tr><td><code>_amounts</code></td><td><code>uint256[]</code></td><td>Array of amounts to allocate per user</td></tr>
+<tr><td><code>_which</code></td><td><code>uint256</code></td><td>1 =&gt; to EdgePool, 2 =&gt; to StudioPool</td></tr>
+</tbody></table>
+</div>
+<h3 id="allocatefromedgepool"><a class="header" href="#allocatefromedgepool">allocateFromEdgePool</a></h3>
+<p>Allocate VAB from EdgePool(Ownable) to StudioPool(VabbleDAO) by Auditor</p>
+<pre><code class="language-solidity">function allocateFromEdgePool(uint256 _amount) external onlyAuditor nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of VAB to allocate</td></tr>
+</tbody></table>
+</div>
+<h3 id="withdrawvabfromstudiopool"><a class="header" href="#withdrawvabfromstudiopool">withdrawVABFromStudioPool</a></h3>
+<p>Withdraw VAB token from StudioPool(VabbleDAO) to the new reward address.</p>
+<p><em>This will be called by the StakingPool contract after a reward address proposal has been accepted and
+finalized. This is part of the migration process to a new DAO.</em></p>
+<pre><code class="language-solidity">function withdrawVABFromStudioPool(address _to) external onlyStakingPool nonReentrant returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_to</code></td><td><code>address</code></td><td>Address to receive the withdrawn VAB</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>Amount of VAB withdrawn</td></tr>
+</tbody></table>
+</div>
+<h3 id="startnewmonth"><a class="header" href="#startnewmonth">startNewMonth</a></h3>
+<p>Start a new month for film rewards calculation / distribution</p>
+<p><em>This must be called before the auditor calls <code>setFinalFilms</code>.</em></p>
+<pre><code class="language-solidity">function startNewMonth() external onlyAuditor nonReentrant;
+</code></pre>
+<h3 id="setfinalfilms"><a class="header" href="#setfinalfilms">setFinalFilms</a></h3>
+<p>Finalizes the payout and reward distribution for a batch of films.</p>
+<p><em>This function is callable only by the auditor, he must call <code>startNewMonth</code> before.
+It validates the input arrays, checks the validity of each film, and then
+finalizes the payout for each valid film using the internal function <code>__setFinalFilm</code>.
+This action will allow the studio, investors and assigned reward receives to claim their rewards.</em></p>
+<pre><code class="language-solidity">function setFinalFilms(uint256[] calldata _filmIds, uint256[] calldata _payouts) external onlyAuditor nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmIds</code></td><td><code>uint256[]</code></td><td>An array of unique identifiers for the films to be finalized.</td></tr>
+<tr><td><code>_payouts</code></td><td><code>uint256[]</code></td><td>An array of total payout amounts corresponding to each film, to be distributed to payees and film investors / funders.</td></tr>
+</tbody></table>
+</div>
+<h3 id="claimreward"><a class="header" href="#claimreward">claimReward</a></h3>
+<p>Claim rewards for multiple film IDs after the auditor called setFinalFilms()</p>
+<pre><code class="language-solidity">function claimReward(uint256[] memory _filmIds) external nonReentrant;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmIds</code></td><td><code>uint256[]</code></td><td>Array of film IDs to claim rewards for</td></tr>
+</tbody></table>
+</div>
+<h3 id="claimallreward"><a class="header" href="#claimallreward">claimAllReward</a></h3>
+<p>Claim rewards of all finalized film IDs for the caller</p>
+<pre><code class="language-solidity">function claimAllReward() external nonReentrant;
+</code></pre>
+<h3 id="updateenabledclaimer"><a class="header" href="#updateenabledclaimer">updateEnabledClaimer</a></h3>
+<p>Update enableClaimer status for a film by studio</p>
+<pre><code class="language-solidity">function updateEnabledClaimer(uint256 _filmId, uint256 _enable) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film to update enableClaimer</td></tr>
+<tr><td><code>_enable</code></td><td><code>uint256</code></td><td>New enableClaimer status</td></tr>
+</tbody></table>
+</div>
+<h3 id="getuserfilmids"><a class="header" href="#getuserfilmids">getUserFilmIds</a></h3>
+<p>Gets the film IDs for a user based on a flag</p>
+<pre><code class="language-solidity">function getUserFilmIds(address _user, uint256 _flag) external view returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>Address of the user</td></tr>
+<tr><td><code>_flag</code></td><td><code>uint256</code></td><td>Flag indicating the type of film IDs to retrieve (1 for created, 2 for updated, 3 for approved, 4 for final)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>List of film IDs for the user</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmstatus"><a class="header" href="#getfilmstatus">getFilmStatus</a></h3>
+<p>Gets the status of a film based on its ID</p>
+<p><em>Retrieves the status of the specified film</em></p>
+<pre><code class="language-solidity">function getFilmStatus(uint256 _filmId) external view returns (Helper.Status status_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>status_</code></td><td><code>Helper.Status</code></td><td>Status of the film</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmowner"><a class="header" href="#getfilmowner">getFilmOwner</a></h3>
+<p>Gets the owner of a film based on its ID</p>
+<p><em>Retrieves the address of the studio that owns the specified film</em></p>
+<pre><code class="language-solidity">function getFilmOwner(uint256 _filmId) external view returns (address owner_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>owner_</code></td><td><code>address</code></td><td>Address of the film owner</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmfund"><a class="header" href="#getfilmfund">getFilmFund</a></h3>
+<p>Gets the fund information for a film based on its ID</p>
+<p><em>Retrieves the fund details for the specified film</em></p>
+<pre><code class="language-solidity">function getFilmFund(uint256 _filmId)
+    external
+    view
+    returns (uint256 raiseAmount_, uint256 fundPeriod_, uint256 fundType_, uint256 rewardPercent_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>raiseAmount_</code></td><td><code>uint256</code></td><td>Amount to be raised for the film</td></tr>
+<tr><td><code>fundPeriod_</code></td><td><code>uint256</code></td><td>Fund period for the film</td></tr>
+<tr><td><code>fundType_</code></td><td><code>uint256</code></td><td>Fund type for the film</td></tr>
+<tr><td><code>rewardPercent_</code></td><td><code>uint256</code></td><td>Reward percentage for the film</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmshare"><a class="header" href="#getfilmshare">getFilmShare</a></h3>
+<p>Gets the share information for a film based on its ID</p>
+<p><em>Retrieves the share percentages and studio payees for the specified film
+Studio payees are the addresses that will receive a part of the film's revenue based on their share percentage.</em></p>
+<pre><code class="language-solidity">function getFilmShare(uint256 _filmId)
+    external
+    view
+    returns (uint256[] memory sharePercents_, address[] memory studioPayees_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>sharePercents_</code></td><td><code>uint256[]</code></td><td>List of share percentages for the film</td></tr>
+<tr><td><code>studioPayees_</code></td><td><code>address[]</code></td><td>List of studio payees for the film</td></tr>
+</tbody></table>
+</div>
+<h3 id="isenabledclaimer"><a class="header" href="#isenabledclaimer">isEnabledClaimer</a></h3>
+<p>Gets the enableClaimer status for a filmID</p>
+<pre><code class="language-solidity">function isEnabledClaimer(uint256 _filmId) external view returns (bool enable_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film to get the enableClaimer status</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>enable_</code></td><td><code>bool</code></td><td>The enableClaimer status</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmids"><a class="header" href="#getfilmids">getFilmIds</a></h3>
+<p>Get film IDs based on flag</p>
+<pre><code class="language-solidity">function getFilmIds(uint256 _flag) external view returns (uint256[] memory list_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_flag</code></td><td><code>uint256</code></td><td>Flag: 1 = proposal, 2 = approveListing, 3 = approveFunding, 4 = updated</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>list_</code></td><td><code>uint256[]</code></td><td>Array of film IDs</td></tr>
+</tbody></table>
+</div>
+<h3 id="getpoolusers"><a class="header" href="#getpoolusers">getPoolUsers</a></h3>
+<p>Get pool users based on flag</p>
+<pre><code class="language-solidity">function getPoolUsers(uint256 _flag) external view onlyAuditor returns (address[] memory list_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_flag</code></td><td><code>uint256</code></td><td>Flag: 1 for studioPoolUsers, 2 for edgePoolUsers</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>list_</code></td><td><code>address[]</code></td><td>Array of pool users addresses</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfinalizedfilmids"><a class="header" href="#getfinalizedfilmids">getFinalizedFilmIds</a></h3>
+<p>Get finalized film IDs for a specific month</p>
+<pre><code class="language-solidity">function getFinalizedFilmIds(uint256 _monthId) external view returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_monthId</code></td><td><code>uint256</code></td><td>Month ID to get finalized film IDs</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>Array of finalized film IDs</td></tr>
+</tbody></table>
+</div>
+<h3 id="checksetfinalfilms"><a class="header" href="#checksetfinalfilms">checkSetFinalFilms</a></h3>
+<p>Checks if the rewards for the provided film IDs can be finalized.</p>
+<p>*Determines whether each film ID is eligible to have its rewards distributed based on the time since the last
+reward distribution.
+A film can receive rewards if either:</p>
+<ul>
+<li>It has never received rewards before.</li>
+<li>The required period (specified by <code>Property::filmRewardClaimPeriod</code>) has passed since the last time it received
+rewards.*</li>
+</ul>
+<pre><code class="language-solidity">function checkSetFinalFilms(uint256[] calldata _filmIds) public view returns (bool[] memory _valids);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmIds</code></td><td><code>uint256[]</code></td><td>List of film IDs to check for reward finalization eligibility.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_valids</code></td><td><code>bool[]</code></td><td>List of boolean values indicating if each film ID is eligible to have its rewards finalized.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getallavailablerewards"><a class="header" href="#getallavailablerewards">getAllAvailableRewards</a></h3>
+<p>Gets all available rewards for a user</p>
+<p><em>Calculates the total available rewards for the user from the last time he claimed up to the current month</em></p>
+<pre><code class="language-solidity">function getAllAvailableRewards(uint256 _curMonth, address _user) public view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_curMonth</code></td><td><code>uint256</code></td><td>Current month ID</td></tr>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>Address of the user</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>Total available rewards for the user</td></tr>
+</tbody></table>
+</div>
+<h3 id="getuserrewardamountforuser"><a class="header" href="#getuserrewardamountforuser">getUserRewardAmountForUser</a></h3>
+<p>Gets the reward amount for a user for a specific film ID</p>
+<p><em>Calculates the total reward amount for the user for the specified film ID
+from the last time he claimed up to the current month</em></p>
+<pre><code class="language-solidity">function getUserRewardAmountForUser(uint256 _filmId, uint256 _curMonth, address _user) public view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+<tr><td><code>_curMonth</code></td><td><code>uint256</code></td><td>Current month ID</td></tr>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>Address of the user</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>Total reward amount for the user</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfilmproposaltime"><a class="header" href="#getfilmproposaltime">getFilmProposalTime</a></h3>
+<p>Gets the proposal creation and approval times for a film based on its ID</p>
+<p><em>Retrieves the proposal creation and approval times for the specified film</em></p>
+<pre><code class="language-solidity">function getFilmProposalTime(uint256 _filmId) public view returns (uint256 cTime_, uint256 aTime_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>cTime_</code></td><td><code>uint256</code></td><td>Creation time of the proposal</td></tr>
+<tr><td><code>aTime_</code></td><td><code>uint256</code></td><td>Approval time of the proposal</td></tr>
+</tbody></table>
+</div>
+<h3 id="getuserrewardamountbetweenmonths"><a class="header" href="#getuserrewardamountbetweenmonths">getUserRewardAmountBetweenMonths</a></h3>
+<p>Gets the reward amount for a user between two months</p>
+<p><em>Calculates the total reward amount for the user for the specified film ID between the two months</em></p>
+<pre><code class="language-solidity">function getUserRewardAmountBetweenMonths(
+    uint256 _filmId,
+    uint256 _preMonth,
+    uint256 _curMonth,
+    address _user
+)
+    public
+    view
+    returns (uint256 amount_);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>ID of the film</td></tr>
+<tr><td><code>_preMonth</code></td><td><code>uint256</code></td><td>Previous month ID</td></tr>
+<tr><td><code>_curMonth</code></td><td><code>uint256</code></td><td>Current month ID</td></tr>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>Address of the user</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>amount_</code></td><td><code>uint256</code></td><td>Total reward amount for the user</td></tr>
+</tbody></table>
+</div>
+<h3 id="__movetoanotherarray"><a class="header" href="#__movetoanotherarray">__moveToAnotherArray</a></h3>
+<p><em>Moves a value from one storage array to another and removes it from the first array.</em></p>
+<p><em>Finds the index of the value in <code>array1</code>, moves it to <code>array2</code>, and updates <code>array1</code> accordingly.</em></p>
+<pre><code class="language-solidity">function __moveToAnotherArray(uint256[] storage array1, uint256[] storage array2, uint256 value) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>array1</code></td><td><code>uint256[]</code></td><td>The source array from which the value will be moved.</td></tr>
+<tr><td><code>array2</code></td><td><code>uint256[]</code></td><td>The destination array to which the value will be moved.</td></tr>
+<tr><td><code>value</code></td><td><code>uint256</code></td><td>The value to be moved from <code>array1</code> to <code>array2</code>.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__paidfee"><a class="header" href="#__paidfee">__paidFee</a></h3>
+<p><em>Handles the payment of proposal fees from the user / studio to the staking pool.</em></p>
+<p><em>Transfers the required fee amount in a specified token (must be an allowed deposit asset)
+to the staking pool, calculates the expected amount of VAB tokens using UniswapV2, swaps the token to VAB,
+and adds the resulting VAB amount as a reward to the staking pool.</em></p>
+<pre><code class="language-solidity">function __paidFee(address _dToken, uint256 _noVote) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_dToken</code></td><td><code>address</code></td><td>The token address used for the payment of the proposal fee.</td></tr>
+<tr><td><code>_noVote</code></td><td><code>uint256</code></td><td>Flag indicating if the proposal skipped voting phase 0 = false, 1 = true has to pay double the proposal fee if the proposal skipped voting</td></tr>
+</tbody></table>
+</div>
+<h3 id="__setfinalfilm"><a class="header" href="#__setfinalfilm">__setFinalFilm</a></h3>
+<p><em>Finalizes the payout and reward distribution for a given film.</em></p>
+<p><em>This function updates the final amounts to be paid to payees and investors
+based on the film's status and the amount raised.
+It handles both <code>APPROVED_LISTING</code> and <code>APPROVED_FUNDING</code> statuses. For <code>APPROVED_LISTING</code>,
+it directly sets the final payout amounts to the payees. For <code>APPROVED_FUNDING</code>
+it calculates and distributes the rewards to the helpers (investors) and the remaining amount to the payees.</em></p>
+<pre><code class="language-solidity">function __setFinalFilm(uint256 _filmId, uint256 _payout) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The unique identifier of the film being finalized.</td></tr>
+<tr><td><code>_payout</code></td><td><code>uint256</code></td><td>The total payout amount to be distributed for the film.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__setfinalamounttopayees"><a class="header" href="#__setfinalamounttopayees">__setFinalAmountToPayees</a></h3>
+<p><em>Calculates and sets the final payout amounts for the studio payees of a film.</em></p>
+<p><em>Avoid stack to deep error here.</em></p>
+<pre><code class="language-solidity">function __setFinalAmountToPayees(uint256 _filmId, uint256 _payout, uint256 _curMonth) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The unique identifier of the film.</td></tr>
+<tr><td><code>_payout</code></td><td><code>uint256</code></td><td>The total payout amount to be distributed to the payees.</td></tr>
+<tr><td><code>_curMonth</code></td><td><code>uint256</code></td><td>The current month identifier.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__setfinalamounttohelpers"><a class="header" href="#__setfinalamounttohelpers">__setFinalAmountToHelpers</a></h3>
+<p><em>Calculates and sets the final reward amounts for the investors of a funded film.</em></p>
+<pre><code class="language-solidity">function __setFinalAmountToHelpers(uint256 _filmId, uint256 _rewardAmount, uint256 _curMonth) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The unique identifier of the film.</td></tr>
+<tr><td><code>_rewardAmount</code></td><td><code>uint256</code></td><td>The total reward amount to be distributed to the investors.</td></tr>
+<tr><td><code>_curMonth</code></td><td><code>uint256</code></td><td>The current month identifier.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__addfinalfilmid"><a class="header" href="#__addfinalfilmid">__addFinalFilmId</a></h3>
+<p><em>Adds the film ID to the list of finalized rewards based on the film IDs for the user.</em></p>
+<pre><code class="language-solidity">function __addFinalFilmId(address _user, uint256 _filmId) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>The address of the user.</td></tr>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The unique identifier of the film.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__claimallreward"><a class="header" href="#__claimallreward">__claimAllReward</a></h3>
+<p><em>Claims all rewards for a given list of film IDs for the caller.</em></p>
+<p><em>Retrieves the total reward amount for the caller from the specified film IDs,
+transfers the rewards in VAB tokens to the caller, and updates the studio pool accordingly.</em></p>
+<pre><code class="language-solidity">function __claimAllReward(uint256[] memory _filmIds) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmIds</code></td><td><code>uint256[]</code></td><td>List of film IDs for which rewards are being claimed.</td></tr>
+</tbody></table>
+</div>
+<h3 id="__updatefinalizeamountandlastclaimmonth"><a class="header" href="#__updatefinalizeamountandlastclaimmonth">__updateFinalizeAmountAndLastClaimMonth</a></h3>
+<p><em>Updates the finalized payout amounts and last claim month for a film when ownership changes.</em></p>
+<pre><code class="language-solidity">function __updateFinalizeAmountAndLastClaimMonth(
+    uint256 _filmId,
+    uint256 _curMonth,
+    address _oldOwner,
+    address _newOwner
+)
+    private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_filmId</code></td><td><code>uint256</code></td><td>The unique identifier of the film for which the ownership is being updated.</td></tr>
+<tr><td><code>_curMonth</code></td><td><code>uint256</code></td><td>The current month identifier.</td></tr>
+<tr><td><code>_oldOwner</code></td><td><code>address</code></td><td>The address of the current owner of the film's payouts.</td></tr>
+<tr><td><code>_newOwner</code></td><td><code>address</code></td><td>The address of the new owner of the film's payouts.</td></tr>
+</tbody></table>
+</div>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="filmproposalcreated"><a class="header" href="#filmproposalcreated">FilmProposalCreated</a></h3>
+<p><em>Emitted when a film proposal is created</em></p>
+<pre><code class="language-solidity">event FilmProposalCreated(uint256 indexed filmId, uint256 noVote, uint256 fundType, address studio);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>The ID of the film proposal</td></tr>
+<tr><td><code>noVote</code></td><td><code>uint256</code></td><td>If the proposal can skip voting phase 0 = false, 1 = true</td></tr>
+<tr><td><code>fundType</code></td><td><code>uint256</code></td><td>The type of funding for the proposal 0 = Distribution, 1 = Token, 2 = NFT, 3 = NFT &amp; Token)</td></tr>
+<tr><td><code>studio</code></td><td><code>address</code></td><td>The address of the studio creating the proposal</td></tr>
+</tbody></table>
+</div>
+<h3 id="filmproposalupdated"><a class="header" href="#filmproposalupdated">FilmProposalUpdated</a></h3>
+<p><em>Emitted when a film proposal is updated</em></p>
+<pre><code class="language-solidity">event FilmProposalUpdated(uint256 indexed filmId, uint256 fundType, address studio);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>The ID of the updated film proposal</td></tr>
+<tr><td><code>fundType</code></td><td><code>uint256</code></td><td>The updated type of funding for the proposal 0 = Distribution, 1 = Token, 2 = NFT, 3 = NFT &amp; Token)</td></tr>
+<tr><td><code>studio</code></td><td><code>address</code></td><td>The address of the studio updating the proposal</td></tr>
+</tbody></table>
+</div>
+<h3 id="filmfundperiodupdated"><a class="header" href="#filmfundperiodupdated">FilmFundPeriodUpdated</a></h3>
+<p><em>Emitted when the film fund period is updated</em></p>
+<pre><code class="language-solidity">event FilmFundPeriodUpdated(uint256 indexed filmId, address studio, uint256 fundPeriod);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>The ID of the film whose fund period is updated</td></tr>
+<tr><td><code>studio</code></td><td><code>address</code></td><td>The address of the studio updating the fund period</td></tr>
+<tr><td><code>fundPeriod</code></td><td><code>uint256</code></td><td>The updated fund period</td></tr>
+</tbody></table>
+</div>
+<h3 id="allocatedtopool"><a class="header" href="#allocatedtopool">AllocatedToPool</a></h3>
+<p><em>Emitted when funds are allocated to a pool</em></p>
+<pre><code class="language-solidity">event AllocatedToPool(address[] users, uint256[] amounts, uint256 which);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>users</code></td><td><code>address[]</code></td><td>The list of users receiving allocations</td></tr>
+<tr><td><code>amounts</code></td><td><code>uint256[]</code></td><td>The amounts allocated to each user</td></tr>
+<tr><td><code>which</code></td><td><code>uint256</code></td><td>Indicates the type of pool (1 = studio, 2 = edge)</td></tr>
+</tbody></table>
+</div>
+<h3 id="rewardallclaimed"><a class="header" href="#rewardallclaimed">RewardAllClaimed</a></h3>
+<p><em>Emitted when a user claims all rewards for a month</em></p>
+<pre><code class="language-solidity">event RewardAllClaimed(address indexed user, uint256 indexed monthId, uint256[] filmIds, uint256 claimAmount);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>user</code></td><td><code>address</code></td><td>The address of the user claiming rewards</td></tr>
+<tr><td><code>monthId</code></td><td><code>uint256</code></td><td>The ID of the month for which rewards are claimed</td></tr>
+<tr><td><code>filmIds</code></td><td><code>uint256[]</code></td><td>The list of film IDs involved in the claim</td></tr>
+<tr><td><code>claimAmount</code></td><td><code>uint256</code></td><td>The total amount claimed</td></tr>
+</tbody></table>
+</div>
+<h3 id="setfinalfilms-1"><a class="header" href="#setfinalfilms-1">SetFinalFilms</a></h3>
+<p><em>Emitted when final films are set by the auditor</em></p>
+<pre><code class="language-solidity">event SetFinalFilms(address indexed user, uint256[] filmIds, uint256[] payouts);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>user</code></td><td><code>address</code></td><td>The address of the auditor setting the final films</td></tr>
+<tr><td><code>filmIds</code></td><td><code>uint256[]</code></td><td>The list of film IDs set as final</td></tr>
+<tr><td><code>payouts</code></td><td><code>uint256[]</code></td><td>The payout amounts for each film</td></tr>
+</tbody></table>
+</div>
+<h3 id="changefilmowner"><a class="header" href="#changefilmowner">ChangeFilmOwner</a></h3>
+<p><em>Emitted when the ownership of a film changes</em></p>
+<pre><code class="language-solidity">event ChangeFilmOwner(uint256 indexed filmId, address indexed oldOwner, address indexed newOwner);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>filmId</code></td><td><code>uint256</code></td><td>The ID of the film whose ownership is changing</td></tr>
+<tr><td><code>oldOwner</code></td><td><code>address</code></td><td>The address of the previous owner</td></tr>
+<tr><td><code>newOwner</code></td><td><code>address</code></td><td>The address of the new owner</td></tr>
+</tbody></table>
+</div>
+<h3 id="finalfilmsetted"><a class="header" href="#finalfilmsetted">FinalFilmSetted</a></h3>
+<pre><code class="language-solidity">event FinalFilmSetted(
+    address[] users, uint256[] filmIds, uint256[] watchedPercents, uint256[] rentPrices, uint256 setTime
+);
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../contracts/dao/UniHelper.sol/contract.UniHelper.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../contracts/dao/VabbleFund.sol/contract.VabbleFund.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../contracts/dao/UniHelper.sol/contract.UniHelper.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../contracts/dao/VabbleFund.sol/contract.VabbleFund.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
